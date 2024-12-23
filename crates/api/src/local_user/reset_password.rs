@@ -17,7 +17,7 @@ pub async fn reset_password(
   let email = data.email.to_lowercase();
   let local_user_view = LocalUserView::find_by_email(&mut context.pool(), &email)
     .await
-    .with_lemmy_type(LemmyErrorType::IncorrectLogin)?;
+    .with_lemmy_type(LemmyErrorType::CouldntFindEmail)?;
 
   let site_view = SiteView::read_local(&mut context.pool()).await?;
   check_email_verified(&local_user_view, &site_view)?;

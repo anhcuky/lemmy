@@ -156,6 +156,7 @@ pub enum LemmyErrorType {
     #[cfg_attr(feature = "full", ts(optional))]
     error: Option<FederationError>,
   },
+  CouldntFindEmail,
 }
 
 /// Federation related errors, these dont need to be translated.
